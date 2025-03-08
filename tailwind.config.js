@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -17,10 +17,17 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        Jakarta: ["Plus Jakarta Sans", "sans-serif"],
+      },
       colors: {
-        border: "hsl(var(--border))",
+        border: "#E2E8F0",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        red: "#FE1B1B",
+        "dark-text": "#1C1C1C",
+        "under-blue": "#013DC3",
+        "light-gray": "rgba(255, 255, 255, 0.20)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
@@ -71,7 +78,15 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "blue-gradient": "linear-gradient(15deg, #090F26 26.3%, #002E93 86.4%)",
+        "btn-gradient": "linear-gradient(15deg, #4A25E1 26.3%, #7B5AFF 86.4%)",
+      },
+      boxShadow: {
+        "btn-shadow":
+          "7px 63px 18px 0px rgba(0, 0, 0, 0.00), 5px 40px 16px 0px rgba(0, 0, 0, 0.01), 3px 23px 14px 0px rgba(0, 0, 0, 0.05), 1px 10px 10px 0px rgba(0, 0, 0, 0.09), 0px 3px 6px 0px rgba(0, 0, 0, 0.10)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
