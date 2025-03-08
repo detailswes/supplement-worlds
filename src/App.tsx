@@ -1,12 +1,12 @@
 import "./App.css";
 import { useState } from "react";
-import { ResponseDisplay } from "@/components/common/ResponseDisplay";
-import { TextareaWithButton } from "@/components/common/TextareaWithButton";
 // import { CarouselComponent } from "@/components/common/CarouselComponent";
-import InitialView from "@/components/common/InitialView";
-import Footer from "@/components/common/Footer";
-import ProductsList from "@/components/common/ProductsList";
-import Logo from "@/assets/images/logo.svg";
+import ProductsList from "./components/common/ProductsList";
+import Logo from "./assets/images/logo.svg";
+import InitialView from "./components/common/InitialView";
+import { ResponseDisplay } from "./components/common/ResponseDisplay";
+import { TextareaWithButton } from "./components/common/TextareaWithButton";
+import Footer from "./components/common/Footer";
 
 const App: React.FC = () => {
   const [userMessage, setUserMessage] = useState("");
