@@ -65,8 +65,9 @@
 }
 
 .scrollable-container::-webkit-scrollbar-thumb {
-  background: #888;
+  background: linear-gradient(15deg, #090f26 26.3%, #002e93 86.4%);
   border-radius: 10px;
+  width: 7px;
 }
 
 .scrollable-container::-webkit-scrollbar-thumb:hover {
