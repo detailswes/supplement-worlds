@@ -23,6 +23,24 @@ const CarouselComponent = () => {
         <CarouselItem className="pl-2 md:pl-4">
           <MyCard imageSrc={ProductThree} />
         </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductOne} />
+        </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductTwo} />
+        </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductThree} />
+        </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductOne} />
+        </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductTwo} />
+        </CarouselItem>
+        <CarouselItem className="pl-2 md:pl-4">
+          <MyCard imageSrc={ProductThree} />
+        </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
