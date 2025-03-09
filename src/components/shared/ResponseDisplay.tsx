@@ -17,14 +17,14 @@ const ActionButton: React.FC<ActionButtonProps> = ({ icon, label }) => (
   <Button
     variant="ghost"
     onClick={() => alert(label)}
-    className="p-0 hover:bg-transparent"
+    className="p-0 hover:bg-transparent scale-90 sm:scale-100 opacity-50 sm:opacity-100"
   >
     {icon}
   </Button>
 );
 
 const ActionButtons: React.FC = () => (
-  <div className="w-full flex gap-[10px] justify-end items-center -mt-8">
+  <div className="w-full flex gap-[10px] pl-7 sm:pl-0 sm:justify-end items-center -mt-4">
     {[
       { icon: <CopyIcon />, label: "Copy Pressed" },
       { icon: <ShareIcon />, label: "Share Pressed" },

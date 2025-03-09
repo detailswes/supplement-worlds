@@ -66,7 +66,7 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
       <Button
         type="button"
         onClick={handleSubmit}
-        className="transition-all hover:bg-transparent sm:hover:bg-btn-gradient hover:opacity-90 shadow-btn-shadow absolute right-3 inset-y-0 sm:static p-0 sm:px-4 sm:py-2 min-w-0 sm:min-w-[192px] bg-transparent sm:bg-btn-gradient"
+        className="transition-all hover:bg-transparent sm:hover:bg-btn-gradient hover:opacity-90 sm:shadow-btn-shadow absolute right-3 inset-y-0 sm:static p-0 sm:px-4 sm:py-2 min-w-0 sm:min-w-[192px] bg-transparent sm:bg-btn-gradient"
       >
         <span className="hidden sm:block">Submit</span>
         <span className="sm:hidden">
