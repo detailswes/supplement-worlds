@@ -42,7 +42,9 @@ const App: React.FC = () => {
     <div
       className={`${
         (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
-      } min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative`}
+      } min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
+        !userMessage && "max-h-screen"
+      }`}
     >
       {userMessage && (
         <div className="pb-6 md:pb-0">
