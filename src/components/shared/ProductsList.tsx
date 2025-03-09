@@ -14,6 +14,7 @@ type Product = {
 
 type ProductsListProps = {
   onProductClick?: () => void;
+  handleMobileProductView?: () => void;
 };
 
 const products: Product[] = [
@@ -51,7 +52,10 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
   </motion.div>
 );
 
-const ProductsList: React.FC<ProductsListProps> = ({ onProductClick }) => {
+const ProductsList: React.FC<ProductsListProps> = ({
+  onProductClick,
+  handleMobileProductView,
+}) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -78,7 +82,7 @@ const ProductsList: React.FC<ProductsListProps> = ({ onProductClick }) => {
       <div className="flex justify-center my-6">
         <Button
           variant="ghost"
-          className="hover:bg-transparent transition-transform duration-300"
+          className="hover:bg-transparent transition-transform duration-300 hidden sm:block"
           onClick={() => setExpanded(!expanded)}
         >
           <motion.span
@@ -87,6 +91,16 @@ const ProductsList: React.FC<ProductsListProps> = ({ onProductClick }) => {
           >
             <DownArrowIcon />
           </motion.span>
+        </Button>
+
+        <Button
+          onClick={handleMobileProductView}
+          variant="ghost"
+          className="hover:bg-transparent transition-transform duration-300 block sm:hidden"
+        >
+          <div className="rotate-180">
+            <DownArrowIcon />
+          </div>
         </Button>
       </div>
     </div>

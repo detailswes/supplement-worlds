@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="w-full px-16">
-      <p className="text-center md:text-right text-sm text-white font-medium">
+    <footer className="w-full px-4 sm:px-16 pb-2 sm:pb-0">
+      <p className="text-right text-xs  sm:text-sm text-[#C6C7F8] sm:text-white font-medium">
         AGB | Datenschutz | Impressum
       </p>
     </footer>

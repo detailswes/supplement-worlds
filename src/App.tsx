@@ -7,11 +7,13 @@ import { ResponseDisplay } from "@/components/shared/ResponseDisplay";
 import { TextareaWithButton } from "@/components/shared/TextareaWithButton";
 import Footer from "@/components/shared/Footer";
 import { ProductDialog } from "@/components/shared/ProductDialog";
+import MobNav from "@/components/shared/MobNav";
 
 const App: React.FC = () => {
   const [userMessage, setUserMessage] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
   const [showCards, setShowCards] = useState(false);
+  const [showMobileProductView, setShowMobileProductView] = useState(false);
 
   const handleResponse = (response: string, userInput: string) => {
     setUserMessage(userInput);
@@ -37,7 +39,11 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative">
+    <div
+      className={`${
+        (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
+      } min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative`}
+    >
       {userMessage && (
         <div className="pb-6 md:pb-0">
           <img
@@ -51,19 +57,35 @@ const App: React.FC = () => {
       {!userMessage ? (
         <InitialView />
       ) : (
-        <ResponseDisplay
-          userMessage={userMessage}
-          responseMessage={responseMessage}
-        />
+        <div
+          className={`${showMobileProductView ? "hidden" : "block"} sm:block`}
+        >
+          <ResponseDisplay
+            userMessage={userMessage}
+            responseMessage={responseMessage}
+            onDownArrowPress={() => {
+              setShowMobileProductView(true);
+            }}
+          />
+        </div>
       )}
 
       <TextareaWithButton onResponse={handleResponse} />
 
       {userMessage && (
-        <ProductsList onProductClick={() => setShowCards(!showCards)} />
+        <div
+          className={`${showMobileProductView ? "block" : "hidden"} sm:block`}
+        >
+          <ProductsList
+            onProductClick={() => setShowCards(!showCards)}
+            handleMobileProductView={() => setShowMobileProductView(false)}
+          />
+        </div>
       )}
       <ProductDialog open={showCards} onClose={() => setShowCards(false)} />
       <Footer />
+
+      <MobNav />
     </div>
   );
 };

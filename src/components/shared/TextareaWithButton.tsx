@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { SubmitIcon } from "@/assets/icons/icons";
 
 interface TextareaWithButtonProps {
   onResponse: (response: string, userInput: string) => void;
@@ -47,25 +48,30 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
   };
 
   return (
-    <div className="w-full max-w-[940px] flex flex-col sm:flex-row gap-[10px] mx-auto mb-8 md:mb-[90px]">
+    <div className="relative w-full max-w-[940px] flex flex-col sm:flex-row gap-[10px] mx-auto mb-4 md:mb-[90px]">
       <Textarea
         placeholder="Ask anything?"
         value={message}
         onChange={handleChange}
+        onFocus={(e) => (e.target.placeholder = "")}
+        onBlur={(e) => (e.target.placeholder = "Ask anything?")}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             e.preventDefault();
             handleSubmit();
           }
         }}
-        className="w-full placeholder:text-white text-center sm:text-left focus-visible:ring-0"
+        className="w-full placeholder:text-white text-center sm:text-left focus-visible:ring-0 resize-none"
       />
       <Button
         type="button"
         onClick={handleSubmit}
-        className="min-w-[192px] transition-all hover:opacity-90 shadow-btn-shadow"
+        className="transition-all hover:bg-transparent sm:hover:bg-btn-gradient hover:opacity-90 shadow-btn-shadow absolute right-3 inset-y-0 sm:static p-0 sm:px-4 sm:py-2 min-w-0 sm:min-w-[192px] bg-transparent sm:bg-btn-gradient"
       >
-        Submit
+        <span className="hidden sm:block">Submit</span>
+        <span className="sm:hidden">
+          <SubmitIcon />
+        </span>
       </Button>
     </div>
   );
