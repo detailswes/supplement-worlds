@@ -14,31 +14,13 @@ const CarouselComponent = () => {
   return (
     <Carousel>
       <CarouselContent className="-ml-2 md:-ml-4">
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
+        <CarouselItem className="pl-2 md:pl-4">
           <MyCard imageSrc={ProductOne} />
         </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
+        <CarouselItem className="pl-2 md:pl-4">
           <MyCard imageSrc={ProductTwo} />
         </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductThree} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductOne} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductTwo} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductThree} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductOne} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
-          <MyCard imageSrc={ProductTwo} />
-        </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4 w-[320px] max-w-[340px]">
+        <CarouselItem className="pl-2 md:pl-4">
           <MyCard imageSrc={ProductThree} />
         </CarouselItem>
       </CarouselContent>
