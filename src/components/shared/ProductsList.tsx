@@ -7,25 +7,33 @@ import { Button } from "@/components/ui/button";
 import { DownArrowIcon } from "@/assets/icons/icons";
 
 type Product = {
-  id: number;
   image: string;
   name: string;
   price: string;
 };
 
+type ProductsListProps = {
+  onProductClick?: () => void;
+};
+
 const products: Product[] = [
-  { id: 1, image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { id: 2, image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { id: 3, image: ProductThree, name: "Mix fruit bowl", price: "$49" },
-  { id: 4, image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { id: 5, image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { id: 6, image: ProductThree, name: "Mix fruit bowl", price: "$49" },
-  { id: 7, image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { id: 8, image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { id: 9, image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
 ];
 
-const ProductCard: React.FC<Product> = ({ image, name, price }) => (
+const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
+  image,
+  name,
+  price,
+  onProductClick,
+}) => (
   <motion.div
     layout
     initial={{ opacity: 0, scale: 0.9 }}
@@ -33,6 +41,7 @@ const ProductCard: React.FC<Product> = ({ image, name, price }) => (
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.4 }}
     className="pt-3 px-[15px] pb-[15px] rounded-xl bg-white cursor-pointer shadow-lg"
+    onClick={onProductClick} // Call function from parent
   >
     <img src={image} alt={name} className="w-full rounded-[5px]" />
     <div className="mt-[15px]">
@@ -42,20 +51,26 @@ const ProductCard: React.FC<Product> = ({ image, name, price }) => (
   </motion.div>
 );
 
-const ProductsList: React.FC = () => {
+const ProductsList: React.FC<ProductsListProps> = ({ onProductClick }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full sm:w-auto">
       {/* Product Grid with Smooth Collapse */}
       <motion.div
         layout
-        className="grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-x-[60px] lg:gap-y-7 overflow-hidden"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-x-[60px] lg:gap-y-7 overflow-hidden w-full"
       >
         <AnimatePresence>
-          {products.slice(0, expanded ? products.length : 3).map((product) => (
-            <ProductCard key={product.id} {...product} />
-          ))}
+          {products
+            .slice(0, expanded ? products.length : 3)
+            .map((product, index) => (
+              <ProductCard
+                key={index}
+                {...product}
+                onProductClick={onProductClick}
+              />
+            ))}
         </AnimatePresence>
       </motion.div>
 

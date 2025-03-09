@@ -71,4 +71,54 @@ const DownArrowIcon = () => {
   );
 };
 
-export { AdminCircledIcon, CopyIcon, ShareIcon, DownArrowIcon };
+const AppsIcon = () => {
+  return (
+    <svg
+      width={39}
+      height={39}
+      viewBox="0 0 39 39"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="19.2335" cy="19.2331" r="19.2331" fill="white" />
+      <rect
+        x="15.0118"
+        y="15.0116"
+        width="3.2837"
+        height="3.2837"
+        rx="0.938213"
+        stroke="#2C263A"
+        strokeWidth="0.938213"
+      />
+      <rect
+        x="15.0118"
+        y="20.1717"
+        width="3.2837"
+        height="3.2837"
+        rx="0.938213"
+        stroke="#2C263A"
+        strokeWidth="0.938213"
+      />
+      <rect
+        x="20.1719"
+        y="15.0116"
+        width="3.2837"
+        height="3.2837"
+        rx="0.938213"
+        stroke="#2C263A"
+        strokeWidth="0.938213"
+      />
+      <rect
+        x="20.1719"
+        y="20.1717"
+        width="3.2837"
+        height="3.2837"
+        rx="0.938213"
+        stroke="#2C263A"
+        strokeWidth="0.938213"
+      />
+    </svg>
+  );
+};
+
+export { AdminCircledIcon, CopyIcon, ShareIcon, DownArrowIcon, AppsIcon };

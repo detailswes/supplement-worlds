@@ -58,7 +58,7 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
             handleSubmit();
           }
         }}
-        className="w-full placeholder:text-white text-center sm:text-left"
+        className="w-full placeholder:text-white text-center sm:text-left focus-visible:ring-0"
       />
       <Button
         type="button"

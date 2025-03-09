@@ -1,24 +1,40 @@
 import "./App.css";
-import { useState } from "react";
-// import { CarouselComponent } from "@/components/common/CarouselComponent";
-import ProductsList from "./components/common/ProductsList";
-import Logo from "./assets/images/logo.svg";
-import InitialView from "./components/common/InitialView";
-import { ResponseDisplay } from "./components/common/ResponseDisplay";
-import { TextareaWithButton } from "./components/common/TextareaWithButton";
-import Footer from "./components/common/Footer";
+import { useEffect, useState } from "react";
+import ProductsList from "@/components/shared/ProductsList";
+import Logo from "@/assets/images/logo.svg";
+import InitialView from "@/components/shared/InitialView";
+import { ResponseDisplay } from "@/components/shared/ResponseDisplay";
+import { TextareaWithButton } from "@/components/shared/TextareaWithButton";
+import Footer from "@/components/shared/Footer";
+import { ProductDialog } from "@/components/shared/ProductDialog";
 
 const App: React.FC = () => {
   const [userMessage, setUserMessage] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
-  // const [showCards, setShowCards] = useState(false);
+  const [showCards, setShowCards] = useState(false);
 
   const handleResponse = (response: string, userInput: string) => {
     setUserMessage(userInput);
     setResponseMessage(response);
-    // setShowCards(true);
     console.log(response);
   };
+
+  useEffect(() => {
+    let lastTouchEnd = 0;
+
+    const handleTouchEnd = (event: TouchEvent) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) {
+        event.preventDefault();
+      }
+      lastTouchEnd = now;
+    };
+
+    document.addEventListener("touchend", handleTouchEnd);
+    return () => {
+      document.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative">
@@ -43,9 +59,10 @@ const App: React.FC = () => {
 
       <TextareaWithButton onResponse={handleResponse} />
 
-      {userMessage && <ProductsList />}
-      {/* <CarouselComponent showCards={showCards} /> */}
-
+      {userMessage && (
+        <ProductsList onProductClick={() => setShowCards(!showCards)} />
+      )}
+      <ProductDialog open={showCards} onClose={() => setShowCards(false)} />
       <Footer />
     </div>
   );

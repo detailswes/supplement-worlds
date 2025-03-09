@@ -3,6 +3,31 @@ import SmallColoredLogo from "@/assets/images/sml-colored-logo.svg";
 import { Button } from "../ui/button";
 import { useEffect, useRef } from "react";
 
+const ActionButtons = () => {
+  return (
+    <div className="w-full flex gap-[10px] justify-end items-center">
+      <Button
+        variant="ghost"
+        onClick={() => {
+          alert("Copy Pressed");
+        }}
+        className="p-0 hover:bg-transparent"
+      >
+        <CopyIcon />
+      </Button>
+      <Button
+        variant="ghost"
+        onClick={() => {
+          alert("Share Pressed");
+        }}
+        className="p-0 hover:bg-transparent"
+      >
+        <ShareIcon />
+      </Button>
+    </div>
+  );
+};
+
 interface ResponseDisplayProps {
   userMessage: string;
   responseMessage: string;
@@ -67,14 +92,7 @@ export const ResponseDisplay: React.FC<ResponseDisplayProps> = ({
           </p>
         </div>
 
-        <div className="w-full flex gap-[10px] justify-end items-center">
-          <Button variant="ghost" className="p-0 hover:bg-transparent">
-            <CopyIcon />
-          </Button>
-          <Button variant="ghost" className="p-0 hover:bg-transparent">
-            <ShareIcon />
-          </Button>
-        </div>
+        <ActionButtons />
 
         {userMessage && (
           <div className="flex justify-between items-center py-[10px] pl-[22px] pr-[12px] border border-border bg-light-gray rounded-[14px]">
@@ -96,14 +114,7 @@ export const ResponseDisplay: React.FC<ResponseDisplayProps> = ({
           </div>
         )}
 
-        <div className="w-full flex gap-[10px] justify-end items-center">
-          <Button variant="ghost" className="p-0 hover:bg-transparent">
-            <CopyIcon />
-          </Button>
-          <Button variant="ghost" className="p-0 hover:bg-transparent">
-            <ShareIcon />
-          </Button>
-        </div>
+        <ActionButtons />
       </div>
     </div>
   );

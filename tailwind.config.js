@@ -28,6 +28,7 @@ module.exports = {
         "dark-text": "#1C1C1C",
         "under-blue": "#013DC3",
         "light-gray": "rgba(255, 255, 255, 0.20)",
+        "light-text": "#718096",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {

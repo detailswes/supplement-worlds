@@ -6,27 +6,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { MyCard } from "./MyCard";
+import ProductOne from "@/assets/images/product.svg";
+import ProductTwo from "@/assets/images/product-one.svg";
+import ProductThree from "@/assets/images/product-two.svg";
 
-interface CarouselComponentProps {
-  showCards: boolean;
-}
-
-export const CarouselComponent: React.FC<CarouselComponentProps> = ({
-  showCards,
-}) => {
-  if (!showCards) return null;
-
+const CarouselComponent = () => {
   return (
     <Carousel>
       <CarouselContent className="-ml-2 md:-ml-4">
         <CarouselItem className="pl-2 md:pl-4">
-          <MyCard />
+          <MyCard imageSrc={ProductOne} />
         </CarouselItem>
         <CarouselItem className="pl-2 md:pl-4">
-          <MyCard />
+          <MyCard imageSrc={ProductTwo} />
         </CarouselItem>
         <CarouselItem className="pl-2 md:pl-4">
-          <MyCard />
+          <MyCard imageSrc={ProductThree} />
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
@@ -34,3 +29,5 @@ export const CarouselComponent: React.FC<CarouselComponentProps> = ({
     </Carousel>
   );
 };
+
+export default CarouselComponent;
