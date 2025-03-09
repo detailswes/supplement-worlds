@@ -7,6 +7,7 @@ import { ResponseDisplay } from "@/components/shared/ResponseDisplay";
 import { TextareaWithButton } from "@/components/shared/TextareaWithButton";
 import Footer from "@/components/shared/Footer";
 import { ProductDialog } from "@/components/shared/ProductDialog";
+import MobNav from "@/components/shared/MobNav";
 
 const App: React.FC = () => {
   const [userMessage, setUserMessage] = useState("");
@@ -85,6 +86,8 @@ const App: React.FC = () => {
       )}
       <ProductDialog open={showCards} onClose={() => setShowCards(false)} />
       <Footer />
+
+      <MobNav />
     </div>
   );
 };
