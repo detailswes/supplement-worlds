@@ -85,12 +85,12 @@ const ProductsList: React.FC<ProductsListProps> = ({
           className="hover:bg-transparent transition-transform duration-300 hidden sm:block"
           onClick={() => setExpanded(!expanded)}
         >
-          <motion.span
+          <motion.div
             animate={{ rotate: expanded ? 180 : 0 }}
             transition={{ duration: 0.3 }}
           >
             <DownArrowIcon />
-          </motion.span>
+          </motion.div>
         </Button>
 
         <Button

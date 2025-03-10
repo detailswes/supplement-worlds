@@ -92,46 +92,6 @@ export const ResponseDisplay: React.FC<ResponseDisplayProps> = ({
       ref={containerRef}
     >
       <div className="flex flex-col gap-4 md:gap-8">
-        <MessageBubble message="Norem ipsum dolor sit amet, consectetur adipiscing elit." />
-        <ResponseBlock text="Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos." />
-        <ActionButtons />
-        <MessageBubble message="Norem ipsum dolor sit amet." />
-        <ResponseBlock text="Vorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis." />
-        <ActionButtons />
-        <MessageBubble message="Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit intert odio mattis." />
-        <ResponseBlock text="Morem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis. Ut commodo efficitur neque." />
-        <ActionButtons />
-        <MessageBubble message="Do you offer vegan or allergen-free supplements?" />
-        <ResponseBlock
-          text={
-            <>
-              <p>
-                ✅ Yes! Supplement World offers a wide range of vegan,
-                gluten-free, and allergen-free supplements to fit different
-                dietary needs.
-              </p>
-              <p>
-                🔹 Vegan Options: 100% plant-based supplements with no
-                animal-derived ingredients.
-              </p>
-              <p>
-                {" "}
-                🔹 Gluten-Free: Safe for those with gluten intolerance or celiac
-                disease.
-              </p>
-              <p>
-                {" "}
-                🔹 Allergen-Free: Free from common allergens like dairy, soy,
-                nuts, and artificial additives.
-              </p>
-              <p>
-                💡 Want personalized recommendations? Take our AI-powered quiz
-                to find the perfect supplements for you! 🚀
-              </p>
-            </>
-          }
-        />
-        <ActionButtons />
         {userMessage && <MessageBubble message={userMessage} />}
         {responseMessage && <ResponseBlock text={responseMessage} />}
         <ActionButtons />

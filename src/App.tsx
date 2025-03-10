@@ -42,7 +42,7 @@ const App: React.FC = () => {
     <div>
       <div
         className={`${
-          (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
+          (!userMessage || showMobileProductView) && "pb-6 sm:pb-14"
         } min-h-screen w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
           !userMessage && "h-dvh max-h-[100dvh] overflow-hidden"
         }`}
@@ -61,7 +61,9 @@ const App: React.FC = () => {
           <InitialView />
         ) : (
           <div
-            className={`${showMobileProductView ? "hidden" : "block"} sm:block`}
+            className={`${
+              showMobileProductView ? "hidden" : "block"
+            } sm:block w-full`}
           >
             <ResponseDisplay
               userMessage={userMessage}
@@ -73,7 +75,9 @@ const App: React.FC = () => {
           </div>
         )}
 
-        <TextareaWithButton onResponse={handleResponse} />
+        <div className="mt-auto w-full">
+          <TextareaWithButton onResponse={handleResponse} />
+        </div>
 
         {userMessage && (
           <div
@@ -89,7 +93,6 @@ const App: React.FC = () => {
 
         <Footer />
       </div>
-      <MobNav />
     </div>
   );
 };
