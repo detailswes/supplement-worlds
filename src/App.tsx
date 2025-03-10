@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ProductsList from "@/components/shared/ProductsList";
 import Logo from "@/assets/images/logo.svg";
 import InitialView from "@/components/shared/InitialView";
@@ -21,14 +21,6 @@ const App: React.FC = () => {
     console.log(response);
   };
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  }, []);
-
   useEffect(() => {
     let lastTouchEnd = 0;
 
@@ -47,12 +39,12 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef}>
+    <div>
       <div
         className={`${
           (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
         } min-h-screen w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
-          !userMessage && "h-dvh max-h-[100vh] overflow-hidden"
+          !userMessage && "h-dvh max-h-[100dvh] overflow-hidden"
         }`}
       >
         {userMessage && (
