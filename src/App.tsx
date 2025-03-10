@@ -42,8 +42,8 @@ const App: React.FC = () => {
     <div
       className={`${
         (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
-      } min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
-        !userMessage && "max-h-screen overflow-hidden"
+      } border border-red min-h-screen bg-blue-gradient w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
+        !userMessage && "h-dvh max-h-[100vh] overflow-hidden"
       }`}
     >
       {userMessage && (
@@ -85,6 +85,7 @@ const App: React.FC = () => {
         </div>
       )}
       <ProductDialog open={showCards} onClose={() => setShowCards(false)} />
+
       <Footer />
 
       <MobNav />
