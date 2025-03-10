@@ -48,7 +48,7 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
   };
 
   return (
-    <div className="relative w-full max-w-[940px] flex flex-col sm:flex-row gap-[10px] mx-auto mb-4 md:mb-[90px] border border-pink-700">
+    <div className="relative w-full max-w-[940px] flex flex-col sm:flex-row gap-[10px] mx-auto mb-4 md:mb-[90px]">
       <Textarea
         placeholder="Ask anything?"
         value={message}
