@@ -2,7 +2,7 @@ import AnimatedLogo from "@/assets/images/animated-logo.gif";
 
 const InitialView = () => {
   return (
-    <div className="h-[250px] sm:h-auto my-auto">
+    <div className="h-[250px] sm:h-auto my-auto border border-green-600">
       <h1 className="text-[40px] font-bold text-white text-center">
         What can I help with?
       </h1>

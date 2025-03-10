@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 
 const MobNav = () => {
   return (
-    <div className="fixed bottom-5 inset-x-5 flex sm:hidden bg-[#DAD4FF] py-1 px-6 rounded-[21px] justify-between gai-2">
+    <div className="fixed bottom-5 inset-x-5 flex sm:hidden bg-[#DAD4FF] py-1 px-6 rounded-[21px] justify-between gai-2 border border-white">
       <Button className="p-0 min-h-0">
         <AppsIcon />
       </Button>
