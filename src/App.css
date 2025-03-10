@@ -9,12 +9,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  position: relative; /* Set a default font */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 *,
 *::before,
 *::after {
