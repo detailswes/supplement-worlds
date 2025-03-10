@@ -42,13 +42,13 @@ const App: React.FC = () => {
     <div>
       <div
         className={`${
-          (!userMessage || showMobileProductView) && ""
-        } min-h-screen w-full flex flex-col justify-center items-center  relative ${
+          (!userMessage || showMobileProductView) && "pb-[68px] sm:pb-14"
+        } min-h-screen w-full flex flex-col justify-center items-center px-4 pt-4 md:pt-14 py-14 relative ${
           !userMessage && "h-dvh max-h-[100dvh] overflow-hidden"
         }`}
       >
         {userMessage && (
-          <div className="">
+          <div className="pb-6 md:pb-0">
             <img
               src={Logo}
               alt="animated-logo"
