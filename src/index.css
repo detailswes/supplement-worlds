@@ -73,6 +73,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-blue-gradient text-foreground font-Jakarta;
+    @apply bg-blue-gradient text-foreground font-Jakarta p-0 m-0 w-full h-full border-0;
   }
 }
