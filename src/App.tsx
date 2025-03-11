@@ -60,7 +60,12 @@ const App: React.FC = () => {
           <div
             className={`$ {showMobileProductView ? "hidden" : "block"} sm:block w-full`}
           >
-            <ResponseDisplay messages={chatHistory} />
+            <ResponseDisplay
+              messages={chatHistory}
+              onDownArrowPress={() => {
+                setShowMobileProductView(true);
+              }}
+            />
           </div>
         )}
 
