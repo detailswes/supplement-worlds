@@ -22,7 +22,9 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
 
   const handleSubmit = async () => {
     if (!message.trim()) return;
-    console.log("Submit button click");
+
+    console.log("Submit button clicked");
+
     try {
       const response = await fetch("http://localhost:8080/api/process", {
         method: "POST",
@@ -34,17 +36,21 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
 
       if (!response.ok) {
         const errorMessage = await response.text();
-        throw new Error(`Network response was not ok: ${errorMessage}`);
+        throw new Error(errorMessage || "Server error occurred.");
       }
 
       const BackendResponse: ResponseData = await response.json();
       console.log("Success:", BackendResponse.message);
       onResponse(BackendResponse.message, message);
-      setMessage("");
     } catch (error) {
       console.error("Error:", error);
-      onResponse("Error occurred while fetching response.", message);
+      onResponse(
+        `Error: ${error instanceof Error ? error.message : "Unknown error"}`,
+        message
+      );
     }
+
+    setMessage(""); // Clear input field after submission
   };
 
   return (
