@@ -19,31 +19,31 @@ const CarouselComponent = ({
     <Carousel className="w-full" opts={{ startIndex: carouselStartIndex ?? 0 }}>
       <CarouselContent>
         <CarouselItem>
-          <MyCard imageSrc={ProductOne} />
+          <MyCard imageSrc={ProductOne} ProductName={' Mix fruit bowl'}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductTwo} />
+          <MyCard imageSrc={ProductTwo} ProductName={"Gut Work"}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductThree} />
+          <MyCard imageSrc={ProductThree} ProductName={"Gummies"}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductOne} />
+          <MyCard imageSrc={ProductOne} ProductName={' Mix fruit bowl'}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductTwo} />
+          <MyCard imageSrc={ProductTwo} ProductName={"Gut Work"}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductThree} />
+          <MyCard imageSrc={ProductThree} ProductName={"Gummies"}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductOne} />
+          <MyCard imageSrc={ProductOne} ProductName={' Mix fruit bowl'}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductTwo} />
+          <MyCard imageSrc={ProductTwo} ProductName={"Gut Work"}/>
         </CarouselItem>
         <CarouselItem>
-          <MyCard imageSrc={ProductThree} />
+          <MyCard imageSrc={ProductThree} ProductName={"Gummies"}/>
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />

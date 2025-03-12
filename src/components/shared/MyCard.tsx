@@ -3,9 +3,10 @@ import { Button } from "../ui/button";
 
 interface MyCardProps {
   imageSrc: string;
+  ProductName: string;
 }
 
-export function MyCard({ imageSrc }: MyCardProps) {
+export function MyCard({ imageSrc, ProductName }: MyCardProps) {
   return (
     <Card>
       <CardContent className="p-4 lg:p-14">
@@ -14,7 +15,7 @@ export function MyCard({ imageSrc }: MyCardProps) {
 
           <div className="w-full">
             <h2 className="text-[13px] lg:text-[40px] font-medium">
-              Mix fruit bowl
+              {ProductName}
             </h2>
             <h4 className="text-xl mt-2 sm:mt-0 lg:text-[30px] font-bold">
               $49
