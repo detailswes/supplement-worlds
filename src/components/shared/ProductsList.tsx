@@ -60,7 +60,7 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     items-center
     justify-center
     rounded-full
-    bg-[#1100C6]
+    bg-[#013DC3]
     hover:bg-[#0500C6]
     text-white
     min-h-0
