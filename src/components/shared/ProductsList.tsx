@@ -19,14 +19,14 @@ type ProductsListProps = {
 
 const products: Product[] = [
   { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Gut Work", price: "$49" },
+  { image: ProductThree, name: "Gummies", price: "$49" },
   { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Gut Work", price: "$49" },
+  { image: ProductThree, name: "Gummies", price: "$49" },
   { image: ProductOne, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductTwo, name: "Mix fruit bowl", price: "$49" },
-  { image: ProductThree, name: "Mix fruit bowl", price: "$49" },
+  { image: ProductTwo, name: "Gut Work ", price: "$49" },
+  { image: ProductThree, name: "Gummies", price: "$49" },
 ];
 
 const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
@@ -45,9 +45,42 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     onClick={onProductClick}
   >
     <img src={image} alt={name} className="w-full rounded-[5px]" />
-    <div className="mt-[15px]">
-      <p className="text-dark-text text-[13px]">{name}</p>
-      <h6 className="text-red text-xl font-bold">{price}</h6>
+    <div className="mt-[15px] flex justify-between">
+      <span>
+        <p className="text-dark-text text-[13px]">{name}</p>
+        <h6 className="text-red text-xl font-bold">{price}</h6>
+      </span>
+      <Button
+        variant="default"
+        size="default"
+        className="
+    !w-[54px]
+    min-h-0 
+    !h-[26px]
+    rounded-full
+    uppercase
+    text-sm
+    font-semibold
+    leading-none
+    bg-[#1100C6]
+    hover:bg-[#0500C6]
+
+  "
+      >
+        <p
+          className="    text-[#FFF]
+    text-center
+    font-['Plus_Jakarta_Sans']
+    text-[8px]
+    font-bold
+    leading-[9.25px]
+    tracking-[0.32px]
+    uppercase
+    !w-[36px]"
+        >
+          Shop
+        </p>
+      </Button>
     </div>
   </motion.div>
 );
