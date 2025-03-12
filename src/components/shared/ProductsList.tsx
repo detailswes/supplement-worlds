@@ -45,16 +45,15 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     onClick={onProductClick}
   >
     <img src={image} alt={name} className="w-full rounded-[5px]" />
-    <div className="mt-[15px] flex justify-between">
-      <span>
+    <div className="mt-[15px] flex justify-between flex-col">
         <p className="text-dark-text text-[13px]">{name}</p>
+      <span className="flex justify-between">
         <h6 className="text-red text-xl font-bold">{price}</h6>
-      </span>
       <Button
   // You can remove variant/size if they're adding extra unwanted styles
-
+  
   className="
-    !w-[54px]
+  !w-[54px]
     !h-[26px]
     flex
     items-center
@@ -68,10 +67,11 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     text-[8px]
     font-bold
     tracking-[0.32px]
-  "
+    "
 >
   Shop
 </Button>
+  </span>
     </div>
   </motion.div>
 );
