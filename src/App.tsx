@@ -1,5 +1,5 @@
-import "./App.css";
 import { useEffect, useState } from "react";
+import "./App.css";
 import ProductsList from "@/components/shared/ProductsList";
 import Logo from "@/assets/images/logo.svg";
 import InitialView from "@/components/shared/InitialView";
@@ -7,33 +7,29 @@ import { ResponseDisplay } from "@/components/shared/ResponseDisplay";
 import { TextareaWithButton } from "@/components/shared/TextareaWithButton";
 import Footer from "@/components/layout/Footer";
 import { ProductDialog } from "@/components/shared/ProductDialog";
+
 const App: React.FC = () => {
   const [chatHistory, setChatHistory] = useState<
     { message: string; response: string }[]
   >([]);
   const [showCards, setShowCards] = useState(false);
   const [showMobileProductView, setShowMobileProductView] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleResponse = (response: string, userInput: string) => {
     setChatHistory((prev) => [...prev, { message: userInput, response }]);
-    console.log(response);
   };
-
-  useEffect(() => {
-    let lastTouchEnd = 0;
-    const handleTouchEnd = (event: TouchEvent) => {
-      const now = Date.now();
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-      lastTouchEnd = now;
-    };
-
-    document.addEventListener("touchend", handleTouchEnd);
-    return () => {
-      document.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
 
   return (
     <div>
@@ -58,13 +54,15 @@ const App: React.FC = () => {
           <InitialView />
         ) : (
           <div
-            className={`$ {showMobileProductView ? "hidden" : "block"} sm:block w-full`}
+            className={`${
+              showMobileProductView || (isMobile && showCards)
+                ? "hidden"
+                : "block"
+            } sm:block w-full`}
           >
             <ResponseDisplay
               messages={chatHistory}
-              onDownArrowPress={() => {
-                setShowMobileProductView(true);
-              }}
+              onDownArrowPress={() => setShowMobileProductView(true)}
             />
           </div>
         )}

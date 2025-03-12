@@ -12,15 +12,33 @@ import ProductThree from "@/assets/images/product-two.svg";
 
 const CarouselComponent = () => {
   return (
-    <Carousel>
-      <CarouselContent className="-ml-2 md:-ml-4">
-        <CarouselItem className="pl-2 md:pl-4">
+    <Carousel className="w-full">
+      <CarouselContent>
+        <CarouselItem>
           <MyCard imageSrc={ProductOne} />
         </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4">
+        <CarouselItem>
           <MyCard imageSrc={ProductTwo} />
         </CarouselItem>
-        <CarouselItem className="pl-2 md:pl-4">
+        <CarouselItem>
+          <MyCard imageSrc={ProductThree} />
+        </CarouselItem>
+        <CarouselItem>
+          <MyCard imageSrc={ProductOne} />
+        </CarouselItem>
+        <CarouselItem>
+          <MyCard imageSrc={ProductTwo} />
+        </CarouselItem>
+        <CarouselItem>
+          <MyCard imageSrc={ProductThree} />
+        </CarouselItem>
+        <CarouselItem>
+          <MyCard imageSrc={ProductOne} />
+        </CarouselItem>
+        <CarouselItem>
+          <MyCard imageSrc={ProductTwo} />
+        </CarouselItem>
+        <CarouselItem>
           <MyCard imageSrc={ProductThree} />
         </CarouselItem>
       </CarouselContent>

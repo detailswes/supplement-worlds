@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProductOne from "@/assets/images/product.svg";
 import ProductTwo from "@/assets/images/product-one.svg";
@@ -42,7 +42,7 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.4 }}
     className="pt-3 px-[15px] pb-[15px] rounded-xl bg-white cursor-pointer shadow-lg"
-    onClick={onProductClick} // Call function from parent
+    onClick={onProductClick}
   >
     <img src={image} alt={name} className="w-full rounded-[5px]" />
     <div className="mt-[15px]">
@@ -57,10 +57,27 @@ const ProductsList: React.FC<ProductsListProps> = ({
   handleMobileProductView,
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    //Just to check mobile screen
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // If on mobile, automatically set expanded to true
+    if (isMobile) {
+      setExpanded(true);
+    }
+  }, [isMobile]);
 
   return (
     <div className="flex flex-col items-center w-full sm:w-auto">
-      {/* Product Grid with Smooth Collapse */}
       <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-x-[60px] lg:gap-y-7 overflow-hidden w-full"
@@ -78,7 +95,6 @@ const ProductsList: React.FC<ProductsListProps> = ({
         </AnimatePresence>
       </motion.div>
 
-      {/* Toggle Button */}
       <div className="flex justify-center my-6">
         <Button
           variant="ghost"
@@ -92,7 +108,6 @@ const ProductsList: React.FC<ProductsListProps> = ({
             <DownArrowIcon />
           </motion.div>
         </Button>
-
         <Button
           onClick={handleMobileProductView}
           variant="ghost"

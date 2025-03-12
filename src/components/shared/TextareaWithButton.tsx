@@ -50,7 +50,7 @@ export function TextareaWithButton({ onResponse }: TextareaWithButtonProps) {
       );
     }
 
-    setMessage(""); // Clear input field after submission
+    setMessage(""); //To clear input field after submission
   };
 
   return (
