@@ -51,36 +51,27 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
         <h6 className="text-red text-xl font-bold">{price}</h6>
       </span>
       <Button
-        variant="default"
-        size="default"
-        className="
+  // You can remove variant/size if they're adding extra unwanted styles
+
+  className="
     !w-[54px]
-    min-h-0 
     !h-[26px]
+    flex
+    items-center
+    justify-center
     rounded-full
-    uppercase
-    text-sm
-    font-semibold
-    leading-none
     bg-[#1100C6]
     hover:bg-[#0500C6]
-
-  "
-      >
-        <p
-          className="    text-[#FFF]
-    text-center
-    font-['Plus_Jakarta_Sans']
+    text-white
+    min-h-0
+    uppercase
     text-[8px]
     font-bold
-    leading-[9.25px]
     tracking-[0.32px]
-    uppercase
-    !w-[36px]"
-        >
-          Shop
-        </p>
-      </Button>
+  "
+>
+  Shop
+</Button>
     </div>
   </motion.div>
 );
