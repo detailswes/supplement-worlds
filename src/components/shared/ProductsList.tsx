@@ -13,7 +13,7 @@ type Product = {
 };
 
 type ProductsListProps = {
-  onProductClick?: () => void;
+  onProductClick?: (index: number) => void;
   handleMobileProductView?: () => void;
 };
 
@@ -29,12 +29,9 @@ const products: Product[] = [
   { image: ProductThree, name: "Gummies", price: "$49" },
 ];
 
-const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
-  image,
-  name,
-  price,
-  onProductClick,
-}) => (
+const ProductCard: React.FC<
+  Product & { onProductClick?: (index: number) => void; cardIndex: number }
+> = ({ image, name, price, cardIndex, onProductClick }) => (
   <motion.div
     layout
     initial={{ opacity: 0, scale: 0.9 }}
@@ -42,17 +39,19 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     exit={{ opacity: 0, scale: 0.9 }}
     transition={{ duration: 0.4 }}
     className="pt-3 px-[15px] pb-[15px] rounded-xl bg-white cursor-pointer shadow-lg"
-    onClick={onProductClick}
+    onClick={() => {
+      onProductClick && onProductClick(cardIndex);
+    }}
   >
     <img src={image} alt={name} className="w-full rounded-[5px]" />
     <div className="mt-[15px] flex justify-between flex-col">
-        <p className="text-dark-text text-[13px]">{name}</p>
+      <p className="text-dark-text text-[13px]">{name}</p>
       <span className="flex justify-between">
         <h6 className="text-red text-xl font-bold">{price}</h6>
-      <Button
-  // You can remove variant/size if they're adding extra unwanted styles
-  
-  className="
+        <Button
+          // You can remove variant/size if they're adding extra unwanted styles
+
+          className="
   !w-[54px]
     !h-[26px]
     flex
@@ -68,10 +67,10 @@ const ProductCard: React.FC<Product & { onProductClick?: () => void }> = ({
     font-bold
     tracking-[0.32px]
     "
->
-  Shop
-</Button>
-  </span>
+        >
+          Shop
+        </Button>
+      </span>
     </div>
   </motion.div>
 );
@@ -112,6 +111,7 @@ const ProductsList: React.FC<ProductsListProps> = ({
             .map((product, index) => (
               <ProductCard
                 key={index}
+                cardIndex={index}
                 {...product}
                 onProductClick={onProductClick}
               />

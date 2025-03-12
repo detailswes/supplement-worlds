@@ -10,9 +10,13 @@ import ProductOne from "@/assets/images/product.svg";
 import ProductTwo from "@/assets/images/product-one.svg";
 import ProductThree from "@/assets/images/product-two.svg";
 
-const CarouselComponent = () => {
+const CarouselComponent = ({
+  carouselStartIndex,
+}: {
+  carouselStartIndex: number;
+}) => {
   return (
-    <Carousel className="w-full">
+    <Carousel className="w-full" opts={{ startIndex: carouselStartIndex ?? 0 }}>
       <CarouselContent>
         <CarouselItem>
           <MyCard imageSrc={ProductOne} />

@@ -5,11 +5,13 @@ import CarouselComponent from "./CarouselComponent";
 interface ProductDialogProps {
   open: boolean;
   onClose: () => void;
+  carouselStartIndex: number;
 }
 
 export const ProductDialog: React.FC<ProductDialogProps> = ({
   open,
   onClose,
+  carouselStartIndex,
 }) => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -40,7 +42,7 @@ export const ProductDialog: React.FC<ProductDialogProps> = ({
         </button>
       </div>
       <div className="relative z-10 w-full max-w-[70%] xl:max-w-[1070px] mx-auto sm:scale-75 2xl:scale-100 bg-transparent p-0 border-0 shadow-none">
-        <CarouselComponent />
+        <CarouselComponent carouselStartIndex={carouselStartIndex} />
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [showCards, setShowCards] = useState(false);
   const [showMobileProductView, setShowMobileProductView] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
-
+  const [selectedIndex, setSelectedIndex] = useState(0);
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 640);
@@ -30,6 +30,15 @@ const App: React.FC = () => {
   const handleResponse = (response: string, userInput: string) => {
     setChatHistory((prev) => [...prev, { message: userInput, response }]);
   };
+
+  const productClickHandler = (index: number) => {
+    setSelectedIndex(index);
+    setShowCards(!showCards);
+  };
+
+  useEffect(() => {
+    console.log("selectedIndex", selectedIndex);
+  }, [selectedIndex]);
 
   return (
     <div>
@@ -76,12 +85,16 @@ const App: React.FC = () => {
             className={`${showMobileProductView ? "block" : "hidden"} sm:block`}
           >
             <ProductsList
-              onProductClick={() => setShowCards(!showCards)}
+              onProductClick={productClickHandler}
               handleMobileProductView={() => setShowMobileProductView(false)}
             />
           </div>
         )}
-        <ProductDialog open={showCards} onClose={() => setShowCards(false)} />
+        <ProductDialog
+          carouselStartIndex={selectedIndex}
+          open={showCards}
+          onClose={() => setShowCards(false)}
+        />
         <Footer />
       </div>
     </div>
